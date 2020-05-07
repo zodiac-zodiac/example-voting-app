@@ -78,7 +78,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'zodiaczodiacpipelinesjavascriptdocker-1375.kube-test-rox'
+    environment: 'zodiaczodiacpipelinesjavascriptdocker-1375.default'
     strategy:
       runOnce:
         deploy:
