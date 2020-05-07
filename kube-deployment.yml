@@ -23,6 +23,7 @@ metadata:
   labels:
     app: redis
 spec:
+  progressDeadlineSeconds: 600
   replicas: 1
   selector:
     matchLabels:
@@ -48,6 +49,7 @@ metadata:
     app: db
   name: db
 spec: 
+  progressDeadlineSeconds: 600
   clusterIP: None
   ports: 
   - name: db
@@ -63,6 +65,7 @@ metadata:
   labels:
     app: db
 spec:
+  progressDeadlineSeconds: 600
   replicas: 1
   selector:
     matchLabels:
@@ -98,6 +101,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: postgres-pv-claim
 spec:
+  progressDeadlineSeconds: 600
   accessModes:
     - ReadWriteOnce
   resources:
@@ -113,6 +117,7 @@ metadata:
   labels:
     app: result
 spec:
+  progressDeadlineSeconds: 600
   type: LoadBalancer
   ports:
   - port: 5001
@@ -128,6 +133,7 @@ metadata:
   labels:
     app: result
 spec:
+  progressDeadlineSeconds: 600
   replicas: 1
   selector:
     matchLabels:
@@ -153,6 +159,7 @@ metadata:
   labels:
     apps: vote
 spec:
+  progressDeadlineSeconds: 600
   type: LoadBalancer
   ports:
     - port: 5000
@@ -168,6 +175,7 @@ metadata:
   labels:
     app: vote
 spec:
+  progressDeadlineSeconds: 600
   replicas: 2
   selector:
     matchLabels:
@@ -204,6 +212,7 @@ metadata:
     app: worker
   name: worker
 spec: 
+  progressDeadlineSeconds: 600
   replicas: 1
   selector:
     matchLabels:
