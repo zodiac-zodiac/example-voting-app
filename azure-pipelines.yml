@@ -69,7 +69,11 @@ stages:
       displayName: Scanning Image ($(vmImageName)) at ${CENTRAL}
       inputs:
         script: './roxctl image check --insecure-skip-tls-verify -e ${CENTRAL} --image $(containerRegistry)/$(imageRepository):$(tag)'
-  
+   
+    - task: CmdLine@2
+      displayName: Stackrox deployment check
+      inputs:
+        script: './roxctl deployment check --insecure-skip-tls-verify -e ${CENTRAL} --file ${KUBEYAML}'
 
 - stage: Deploy
   displayName: Deploy stage
